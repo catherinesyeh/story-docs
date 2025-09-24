@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <title>Story Ribbons Project Page</title>
+    <meta name="description" content="Story Ribbons Project Page" />
+    <meta property="og:image" content="img/socimg.png" />
+    <link rel="icon" type="image/svg+xml" href="img/fav.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Edu+QLD+Hand:wght@400..700&family=Edu+SA+Beginner:wght@400..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Patrick+Hand+SC&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div id="progressbar-parent">
+        <div id="progressbar"></div>
+      </div>
+      <div class="container">
+        <p class="message">🏆 VIS 2025 Honorable Mention</p>
+        <h1>
+          Story Ribbons: Reimagining Storyline Visualizations with Large
+          Language Models
+        </h1>
+        <p class="no-spacing">
+          <a
+            href="https://catherinesyeh.github.io/"
+            target="_blank"
+            title="Catherine Yeh"
+            >Catherine Yeh</a
+          ><sup>1</sup>,
+          <a
+            href="https://www.tarakmenon.com/"
+            target="_blank"
+            title="Tara Menon"
+            >Tara Menon</a
+          ><sup>1</sup>,
+          <a
+            href="https://english.fas.harvard.edu/people/robin-singh-arya"
+            target="_blank"
+            title="Robin Singh Arya"
+            >Robin Singh Arya</a
+          ><sup>1</sup>,
+          <a href="https://muse.io/helenhe" target="_blank" title="Helen He"
+            >Helen He</a
+          ><sup>1</sup>,
+          <a
+            href="https://complit.fas.harvard.edu/people/moira-weigel/"
+            target="_blank"
+            title="Moira Weigel"
+            >Moira Weigel</a
+          ><sup>1</sup>,
+          <a
+            href="http://www.fernandaviegas.com/"
+            target="_blank"
+            title="Fernanda Viégas"
+            >Fernanda Viégas</a
+          ><sup>1,2</sup>,
+          <a
+            href="https://www.bewitched.com/"
+            target="_blank"
+            title="Martin Wattenberg"
+            >Martin Wattenberg</a
+          ><sup>1,2</sup>
+        </p>
+        <p class="smaller">
+          <i><sup>1</sup>Harvard University, <sup>2</sup>Google Research</i>
+        </p>
+        <div class="buttons">
+          <a
+            class="button"
+            href="https://arxiv.org/pdf/2508.06772"
+            target="_blank"
+            title="Paper"
+            ><i class="fa fa-file-text-o" aria-hidden="true"></i>Paper</a
+          >
+          <a class="button" href="#video" title="Video"
+            ><i class="fa fa-play" aria-hidden="true"></i>Video</a
+          >
+          <a class="button" href="#bibtex" title="BibTeX"
+            ><i class="fa fa-code" aria-hidden="true"></i>BibTeX</a
+          >
+        </div>
+      </div>
+      <a
+        id="down-arrow"
+        class="arrow-button"
+        href="#video"
+        title="Go to main content"
+      >
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </a>
+    </header>
+
+    <section id="video">
+      <div class="container">
+        <video controls width="100%" poster="img/poster.png">
+          <source src="video/demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p class="spacing-above gray">
+          We present <b>Story Ribbons</b>, an interactive narrative analysis
+          tool that visualizes LLM-extracted insights about literary works.
+          Story Ribbons enables users to explore stories at multiple narrative
+          levels, and offers AI-powered features to customize visualizations to
+          individual analysis workflows.
+        </p>
+      </div>
+    </section>
+
+    <section id="abstract">
+      <div class="container">
+        <h2>Abstract</h2>
+        <p>
+          Analyzing literature involves tracking interactions between
+          characters, locations, and themes. Visualization has the potential to
+          facilitate the mapping and analysis of these complex relationships,
+          but capturing structured information from unstructured story data
+          remains a challenge. As large language models (LLMs) continue to
+          advance, we see an opportunity to use their text processing and
+          analysis capabilities to augment and reimagine existing storyline
+          visualization techniques. Toward this goal, we introduce an LLM-driven
+          data parsing pipeline that automatically extracts relevant narrative
+          information from novels and scripts. We then apply this pipeline to
+          create Story Ribbons, an interactive visualization system that helps
+          novice and expert literary analysts explore detailed character and
+          theme trajectories at multiple narrative levels. Through pipeline
+          evaluations and user studies with Story Ribbons on 36 literary works,
+          we demonstrate the potential of LLMs to streamline narrative
+          visualization creation and reveal new insights about familiar stories.
+          We also describe current limitations of AI-based systems, and
+          interaction motifs designed to address these issues.
+        </p>
+      </div>
+    </section>
+
+    <section id="pipeline">
+      <div class="container">
+        <h2>Story Analysis Pipeline</h2>
+        <img
+          src="img/pipeline.gif"
+          title="Story Ribbons Pipeline"
+          class="full-width"
+          loading="lazy"
+        />
+        <p>
+          Our pipeline contains four steps, comprising a
+          <b class="blue">decomposition</b> and
+          <b class="pink">aggregation</b> phase. Steps involving an LLM are
+          denoted with <img src="img/robot.png" loading="lazy" class="icon" />.
+          Correction loops are included to check and correct LLM output; each
+          runs once per story. Our pipeline is highly adaptable to different
+          literary genres (e.g., novels, plays) and elements (e.g., characters,
+          themes).
+        </p>
+      </div>
+    </section>
+
+    <section id="system">
+      <div class="container">
+        <h2>
+          <span class="gradient">Story Ribbons:</span>
+          <span class="cursive">An Interactive Literary Analysis Tool</span>
+        </h2>
+        <img
+          src="img/pride.png"
+          title="Overview of Story Ribbons Interface"
+          class="full-width"
+          loading="lazy"
+        />
+        <p>
+          Story Ribbons visualizes narrative insights from our LLM-powered
+          analysis pipeline, allowing users to explore customizable character
+          and theme trajectories for 36 stories. Each "ribbon" represents a
+          different character in <i>Pride and Prejudice</i> (e.g.,
+          <b class="bright-pink">Elizabeth Bennet</b>), and can be used to track
+          interactions across novel chapters (x-axis) and locations (y-axis). We
+          use ribbon thickness to represent character prominence in each
+          chapter. Chapter titles are colored by sentiment (<b class="dark-red"
+            >red:</b
+          >
+          positive, <b class="dark-blue">blue:</b>
+          negative).
+        </p>
+      </div>
+    </section>
+
+    <section id="motifs">
+      <div class="container">
+        <p class="gray">
+          Our system includes three key LLM-powered <b>interaction motifs:</b>
+        </p>
+        <div class="three-col">
+          <div class="motif">
+            <img
+              src="img/explain.gif"
+              title="Explanations on Demand"
+              loading="lazy"
+              class="gif"
+            />
+            <div class="exp-box">
+              <b class="light-purple"
+                ><img
+                  src="img/purplestar.png"
+                  loading="lazy"
+                  class="icon"
+                />Explanations on Demand</b
+              >
+              <p>
+                Empower users to interrogate and verify the model's reasoning by
+                showing explanations for LLM-extracted insights when interacting
+                with UI components (e.g.,
+                <i>why Elizabeth's ribbon is pink</i>).
+              </p>
+            </div>
+          </div>
+          <div class="motif">
+            <img
+              src="img/dim.gif"
+              title="Natural Language Dimensions"
+              loading="lazy"
+              class="gif"
+            />
+            <div class="exp-box">
+              <b class="light-pink"
+                ><img
+                  src="img/pinkstar.png"
+                  loading="lazy"
+                  class="icon"
+                />Natural Language Dimensions</b
+              >
+              <p>
+                Allow users to add new visualization dimensions through natural
+                language prompts to shape story exploration around their own
+                interpretive goals (e.g.,
+                <i>a custom y-axis ranking characters by hope</i>).
+              </p>
+            </div>
+          </div>
+          <div class="motif">
+            <img
+              src="img/query.gif"
+              title="Natural Language Queries"
+              loading="lazy"
+              class="gif"
+            />
+            <div class="exp-box">
+              <b class="light-orange"
+                ><img
+                  src="img/orangestar.png"
+                  loading="lazy"
+                  class="icon"
+                />Natural Language Queries</b
+              >
+              <p>
+                Help users navigate the visualization and gain deeper story
+                insights by providing personalized guidance based on their
+                natural language queries (e.g.,
+                <i>"When does Grete betray Gregor?"</i>).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples">
+      <div class="container">
+        <h2>More Visualization Examples</h2>
+        <p>
+          We used Story Ribbons to visualize novels, plays, poems, non-fiction,
+          and even LLM-generated stories. To learn more,
+          <a
+            href="https://arxiv.org/abs/2508.06772"
+            title="Story Ribbons Paper"
+            target="_blank"
+            >check out our paper</a
+          >.
+        </p>
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img src="img/metamorphosis.png" />
+            <div class="text"><i>The Metamorphosis</i> by Franz Kafka</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="img/emma.png" />
+            <div class="text"><i>Emma</i> by Jane Austen</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="img/anne.png" />
+            <div class="text">
+              <i>Anne of Green Gables</i> by L.M. Montgomery
+            </div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="img/wizard.png" />
+            <div class="text"><i>The Wizard of Oz</i> by L. Frank Baum</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="img/jane.png" />
+            <div class="text"><i>Jane Eyre</i> by Charlotte Brontë</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="img/little.png" />
+            <div class="text"><i>Little Women</i> by Louisa May Alcott</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="img/school.png" />
+            <div class="text">
+              <i>The School of Scandal</i> by Richard Brinsley Sheridan
+            </div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="img/time.png" />
+            <div class="text"><i>Time Looped Detective</i> (LLM-Generated)</div>
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </a>
+          <a class="next" onclick="plusSlides(1)">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div style="text-align: center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+          <span class="dot" onclick="currentSlide(7)"></span>
+          <span class="dot" onclick="currentSlide(8)"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="bibtex">
+      <div class="container">
+        <div class="two-col">
+          <h2>BibTeX</h2>
+          <div class="buttons">
+            <div class="button" title="Copy" id="copy-button">
+              <i class="fa fa-clipboard" aria-hidden="true"></i>Copy
+            </div>
+          </div>
+        </div>
+        <pre id="bibtex-text">
+@article{yeh2025story,
+  title={Story Ribbons: Reimagining Storyline Visualizations with Large Language Models},
+  author={Yeh, Catherine and Menon, Tara and Arya, Robin Singh and He, Helen and Weigel, Moira and Vi{\'e}gas, Fernanda and Wattenberg, Martin},
+  journal={arXiv preprint arXiv:2508.06772},
+  year={2025}
+}</pre
+        >
+      </div>
+    </section>
+
+    <footer>
+      <container>
+        <img src="img/harvard.png" title="Harvard University Logo" />
+        <p class="less-spacing">
+          Contact: catherineyeh [at] g [dot] harvard [dot] edu
+        </p>
+        <p class="smaller">
+          Read our
+          <a
+            title="Story Ribbons Paper"
+            href="https://arxiv.org/pdf/2508.06772"
+            target="_blank"
+            >paper</a
+          >
+          | About the
+          <a
+            href="https://insight.seas.harvard.edu/"
+            target="_blank"
+            title="Insight + Interaction Lab"
+            >Insight + Interaction Lab</a
+          >
+        </p>
+        <div class="buttons">
+          <a class="button" href="#" title="Back to top">Back to top</a>
+        </div>
+      </container>
+    </footer>
+
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+  </body>
+</html>

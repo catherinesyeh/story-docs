@@ -1,0 +1,553 @@
+/* COLORS */
+:root {
+  --text: #111;
+  --purple: #9c85c0;
+  --light-purple: #ded0f5;
+  --lightest-purple: #faf6ff;
+  --pink: #e56a8f;
+  --light-pink: #ffb5cc;
+  --bright-pink: #ff68b4;
+  --orange: #ff9858;
+  --light-orange: #ffc4a0;
+  --blue: #6598db;
+
+  --dark-red: #5d0202;
+  --dark-blue: #0c2a60;
+
+  --dark-grey: #444;
+  --med-gray: #777;
+  --light-med-gray: #bbb;
+  --grey: #f2f2f2;
+}
+
+::-moz-selection {
+  background: var(--text);
+  color: white;
+}
+
+::selection {
+  background: var(--text);
+  color: white;
+}
+
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  font-size: calc(12px + 0.3vw);
+  line-height: calc(20px + 0.5vw);
+  font-weight: 300;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+b {
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: calc(8px + 0.1vw);
+  transition: 0.5s;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.cursive {
+  font-family: "Bad Script", cursive;
+}
+
+.smaller {
+  font-size: calc(11px + 0.3vw);
+}
+
+.no-spacing {
+  margin-bottom: 0;
+}
+
+.less-spacing {
+  margin-bottom: calc(4px + 0.1vw);
+}
+
+.spacing-above {
+  margin-top: calc(8px + 0.2vw);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 800;
+  transition: 0.5s;
+}
+
+h1 {
+  font-size: calc(20px + 0.5vw);
+  line-height: calc(30px + 0.5vw);
+}
+
+h2 {
+  line-height: calc(28px + 0.4vw);
+}
+
+a {
+  color: var(--purple);
+  font-weight: 400;
+  transition: 0.5s;
+  /* text-decoration: none; */
+}
+
+a:hover {
+  opacity: 0.8;
+  /* text-decoration: underline; */
+}
+
+sup {
+  font-size: x-small;
+}
+
+/* text colors */
+.purple {
+  color: var(--purple);
+}
+
+.light-purple {
+  color: var(--light-purple);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.dark-red {
+  color: var(--dark-red);
+}
+
+.dark-blue {
+  color: var(--dark-blue);
+}
+
+.pink {
+  color: var(--pink);
+}
+
+.light-pink {
+  color: var(--light-pink);
+}
+
+.bright-pink {
+  color: var(--bright-pink);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.light-orange {
+  color: var(--light-orange);
+}
+
+.gray {
+  color: var(--dark-grey);
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--purple), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* sections */
+section,
+header,
+footer {
+  padding: calc(16px + 1.5vw);
+  height: auto;
+  transition: 0.5s;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.divider {
+  height: 1px;
+  max-width: 900px;
+  width: 50%;
+  background: var(--grey);
+  margin: auto;
+}
+
+.two-col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(20px + 0.5vw);
+}
+
+@media (max-width: 1000px) {
+  .three-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .three-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* header */
+header {
+  position: relative;
+  padding-top: calc(18px + 1.5vw);
+}
+
+#progressbar-parent {
+  width: 100%;
+  display: block;
+  height: calc(4px + 0.3vw);
+  background: linear-gradient(135deg, var(--purple), var(--orange));
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+#progressbar {
+  position: absolute;
+  right: 0;
+  left: auto;
+  height: 100%;
+  background: var(--grey);
+  width: 100%;
+}
+
+header .message {
+  color: var(--dark-grey);
+  font-size: calc(11px + 0.3vw);
+  margin-bottom: calc(6px + 0.2vw);
+}
+
+.buttons {
+  display: flex;
+  gap: calc(8px + 0.2vw);
+  margin-top: calc(12px + 0.3vw);
+  font-size: calc(10px + 0.3vw);
+}
+
+.buttons .button {
+  text-decoration: none;
+  color: white;
+  background: var(--text);
+  padding: calc(2px + 0.1vw) calc(8px + 0.4vw);
+  border-radius: calc(4px + 0.1vw);
+  transition: 0.5s;
+}
+
+.buttons .button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.buttons .button i {
+  margin-right: calc(4px + 0.2vw);
+}
+
+.arrow-button {
+  text-decoration: none;
+  border-radius: 100%;
+  display: flex;
+  position: absolute;
+  width: calc(24px + 1.5vw);
+  height: calc(24px + 1.5vw);
+  padding: 0;
+  background: rgb(255, 255, 255, 0.8);
+  color: var(--purple);
+  font-size: calc(10px + 1vw);
+  left: 50%;
+  bottom: calc(-12px - 0.75vw);
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.arrow-button i {
+  margin: auto;
+}
+
+.arrow-button:hover {
+  opacity: 1;
+  background: white;
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* video */
+#video {
+  background: var(--grey);
+  padding-top: calc(24px + 1.5vw);
+}
+
+/* abstract */
+#abstract {
+  padding-bottom: 0;
+}
+
+#abstract h2 {
+  text-align: center;
+  font-family: "Bad Script", cursive;
+}
+
+#abstract .container {
+  border: 2px solid;
+  border-image: linear-gradient(135deg, var(--purple), var(--orange)) 1;
+  padding: calc(16px + 0.8vw);
+}
+
+#abstract h2 {
+  margin-bottom: calc(4px + 0.1vw);
+}
+
+/* pipeline */
+#pipeline {
+  padding-bottom: 0;
+}
+
+img.full-width {
+  width: 100%;
+  height: auto;
+  margin-top: calc(8px + 0.3vw);
+  margin-bottom: calc(8px + 0.3vw);
+}
+
+/* system */
+#system {
+  padding-bottom: calc(12px + 1vw);
+}
+
+#motifs {
+  background: var(--grey);
+  padding-top: calc(12px + 1vw);
+}
+
+.motif {
+  border-radius: calc(4px + 0.1vw);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  height: max-content;
+}
+
+.motif .gif {
+  width: 100%;
+  height: auto;
+  border-radius: calc(4px + 0.1vw) calc(4px + 0.1vw) 0 0;
+}
+
+.icon {
+  width: calc(12px + 0.3vw);
+  height: auto;
+  margin-bottom: -1px;
+}
+
+.motif .icon {
+  margin-right: calc(4px + 0.1vw);
+}
+
+.motif .exp-box {
+  margin-top: calc(-8px - 0.3vw);
+  background: var(--text);
+  color: white;
+  padding: calc(8px + 0.3vw);
+  border-radius: 0 0 calc(4px + 0.1vw) calc(4px + 0.1vw);
+}
+
+.motif .exp-box p {
+  font-size: calc(10px + 0.3vw);
+  line-height: calc(18px + 0.3vw);
+  /* font-style: italic; */
+}
+
+/* examples */
+#examples {
+  padding-bottom: 0;
+}
+
+#examples h2 {
+  margin-bottom: calc(4px + 0.3vw);
+}
+
+.mySlides {
+  display: none;
+  position: relative;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  margin-top: calc(36px + 1.5vw);
+}
+
+.slideshow-container img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: calc(24px + 1.5vw);
+  height: calc(24px + 1.5vw);
+  background-color: rgb(255, 255, 255, 0.5);
+  color: var(--purple);
+
+  border-radius: 50%;
+  font-size: calc(10px + 1vw);
+  font-weight: normal;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: white;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Caption text */
+.text {
+  color: var(--med-gray);
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: calc(8px + 0.3vw);
+  width: calc(8px + 0.3vw);
+  margin: 0 2px;
+  background-color: var(--light-med-gray);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: var(--purple);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* bibtex */
+#bibtex {
+  padding-bottom: calc(24px + 1.5vw);
+}
+
+#bibtex .buttons {
+  margin-top: 0;
+}
+
+#bibtex pre {
+  background: var(--grey);
+  margin-top: calc(8px + 0.3vw);
+  padding: calc(8px + 0.3vw);
+  overflow-x: auto;
+  scrollbar-width: none;
+  font-size: calc(10px + 0.3vw);
+  line-height: calc(20px + 0.4vw);
+}
+
+/* footer */
+footer {
+  background: var(--text);
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+footer a {
+  color: var(--light-purple);
+}
+
+footer img {
+  width: calc(32px + 0.6vw);
+  height: auto;
+  display: block;
+  margin: auto;
+  padding-bottom: 8px;
+}
+
+footer .buttons {
+  justify-content: center;
+}
+
+footer .buttons .button {
+  font-family: "Bad Script", cursive;
+}
+
+footer .buttons .button:hover {
+  transform: scale(1.05);
+}
+
+footer .buttons .button i {
+  margin-right: 0;
+  display: block;
+}
